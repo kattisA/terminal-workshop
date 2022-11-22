@@ -5,38 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href=
+            "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
   <div class="container-md">
-  <h1>Terminal Workshop för Uppsala Women Coding</h1>
-    <h2>Översikt av workshopens innehåll</h2>
-    <p>Några av de vanligaste kommandon. </p>
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th scope="col">Kommando</th>
-        <th scope="col">Funktion</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>ls</td>
-        <td>list directory = lista alla foldrar och filer</td>
-      </tr>
-      <tr>
-        <td>cd</td>
-        <td>change directory = flytta till en annan folder</td>
-      </tr>
-      <tr>
-        <td>pwd</td>
-        <td>print current directory = dvs ange var i folderhierarkin jag befinner mig</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="row">
+      <div class="col-3">
+        <ul class="nav flex-column fixed-top">
+          <li class="nav-item">
+            <a class="nav-link active" href="#start">Start</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#exercise1">Övning 1 - Navigering</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Övning 2 - </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-9">
+        <h1 id="start">Terminal Workshop för Uppsala Women Coding</h1>
+        <h2>Översikt av workshopens innehåll</h2>
+        <p>Du kan använda terminalen i stället för datorns gui och skapa nya foldrar, filer men också söka i filerna,
+          kopiera och flytta dem. För att lära sig om terminalen följer några övningar inom de olika delarna
+          så att du kan prova på egen hand. </p>
+        <p>Några av de vanligaste kommandon finns med i tabellen nedan. </p>
+        <table id="tableOverview" class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Kommando</th>
+            <th scope="col">Funktion</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>ls</td>
+            <td>list directory = lista alla foldrar och filer</td>
+          </tr>
+          <tr>
+            <td>cd</td>
+            <td>change directory = flytta till en annan folder</td>
+          </tr>
+          <tr>
+            <td>pwd</td>
+            <td>print current directory = dvs ange var i folderhierarkin jag befinner mig</td>
+          </tr>
+          </tbody>
+        </table>
+        <h2 id="exercise1">Övning 1 - Navigering</h2>
+        <p>För att navigera används kommandot <span class="badge bg-info text-dark">cd</span> främst.
+          Du kan också få hjälp av <span class="badge bg-info text-dark">ls</span> för att se vilka olika foldrar
+          och filer som finns. För att lista dessa och även se dolda filer använd
+          <span class="badge bg-info text-dark">ls -l</span>. För att navigera vidare ange "cd" tillsammans
+          med din folder som du ska navigera till. För att ta dig tillbaka igen kan du använda "cd"
+          tillsammans med andra tecken för att ta dig upp i hierarkin i olika steg.
+          Du kan också ta dig direkt till hemkatalogen eller till root.
+        </p>
+        <div class="alert alert-info" role="alert">
+          <i class="bi bi-lightbulb" style="font-size: 1.5rem; color: cornflowerblue;"></i>Använd tab för autocomplete när du skriver din folders namn!
+        </div>
+        <h3>Navigera till en mapp och tillbaka till Home</h3>
+        <ol type="1">
+          <li>Navigera till en mapp med hjälp av terminalen</li>
+          <li>Lista dina foldrar och filer i den katalogen</li>
+          <li>Navigera till en till mapp</li>
+          <li>Navigera nu tillbaka till din hemkatalog!</li>
+          <li>Vad skulle du kunna skriva för att komma till rooten dvs ovanför din hemkatalog?</li>
+        </ol>
+        <p>
+          <a class="btn btn-info" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+           Lösning
+          </a>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <div class="alert alert-secondary" role="alert">
+             $ cd Documents<br>
+             $ ls  <br>
+             $ cd Zoom <br>
+             $ cd ~ <br>
+             $ cd / <br>
+            </div>
+           <p>
+             När du använder <span class="badge bg-info text-dark">cd ~ </span> hamnar du i hemkatalogen
+             medan <span class="badge bg-info text-dark">cd /</span> tar dig till root, dvs den högsta nivå i mapphierarkin.
+
+           </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
-  </body>
+  </div></body>
 </html>

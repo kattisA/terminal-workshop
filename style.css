@@ -1,0 +1,8 @@
+.nav-link {
+    color: #565656;
+}
+
+.nav-link:hover {
+    color: #565656;
+    font-weight: 600;
+}
