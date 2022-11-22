@@ -1,3 +1,10 @@
+.nav {
+    padding:2rem;
+}
+
+.mainText {
+    padding:2rem;
+}
 
 .nav-link {
     color: #565656;
@@ -6,6 +13,14 @@
 .nav-link:hover {
     color: #565656;
     font-weight: 600;
+}
+
+.alert-secondary {
+    width:50%;
+}
+
+#tableOverview {
+    width:80%
 }
 
 #quote {
