@@ -47,7 +47,53 @@
   </div>
 
     <!-- START - Carolina adding excercises here - Add these in the original index on Wednesday -->
-  <div class="container-md">
+    <div class="container-md">
+      <h3>Övning 4 - Sätt upp ett bash script</h3>
+      <p>En del av de övningar vi har gjort i den här workshopen går att automatisera för att bli mer effektiv.
+        <br>Med hjälp av bash script så lär vi oss att automatisera en serie kommandon i en fil och exekvera (köra) dem.</p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Uppgifter</th>
+            <th scope="col">Instruktion i Terminalen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Skapa en fil som heter createfile.sh</td>
+            <td>Antingen med Nano <code>touch createfile.sh</code> eller med Vim <code>vim createfile.sh</code></td>
+          </tr>
+          <tr>
+            <td>Skriv in de kommandon vi vill köra för att skapa en ny fil här</td>
+            <td>Om du använde Vim så är du redan i filen. Tryck då I för Insert mode för att kunna skriva.
+              <br>Använde du Nano får du köra <code>nano &lt;createfile.sh&gt;</code> för att öppna filen först.
+              <br>Nu skriv antingen <code>touch newfile.html</code> eller <code>vim newfile.html</code>
+          </tr>
+          <tr>
+            <td>Spara & stäng filen</td>
+            <td>För Vim använd <code>ESC + wq;</code>.
+            <br>För Nano använd <code>CTRL + X + Y + Enter</code></td>
+          </tr>
+          <tr>
+            <td>Nu ska vi köra scriptet och skapa en ny fil</td>
+            <td>Kör antingen <code>./createfile.sh</code> eller <code>bash createfile.sh</code></td>
+          </tr>
+          <tr>
+            <td>Skriv något i din nya fil</td>
+            <td>Om det funkade att köra scriptet så bör du vara i en ny fil nu. Skriv ex <code>Funkar det här?</code> & spara filen</td>
+          </tr>
+          <tr>
+            <td>För att kolla om du har en ny fil i din mapp</td>
+            <td><code>ls</code> eller <code>ls -la</code> för att se filerna i din mapp, du ska se en fil som heter newfile.html</td>
+          </tr>
+          <tr>
+            <td>För att se innehållet i din nya fil</td>
+            <td>Skriv ut outputen med <code>cat newfile.html</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="container-md">
     <h3>Övning 6 - SSH och använda en live server med Terminalen</h3>
     <p>Här ska vi lära oss att SSHa in till en live server. Navigera där samt skapa en ny mapp och en fil, 
       <br>samt redigera den och spara den. Vi ska också besöka serverns URL för att se att det funkar.</p>
