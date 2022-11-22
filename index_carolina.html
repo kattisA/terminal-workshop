@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-md" id="quote">
+    <figure class="text-center">
+      <blockquote class="blockquote">
+        <p>"Every girl deserves to take part in creating the technology that will change our world, and change who runs it."</p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        Malala Yousafzai, <cite title="Source Title">Nobel Peace Prize Winner</cite>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="container-md">
+  <h1>Terminal Workshop för Uppsala Women Coding</h1>
+    <h2>Översikt av workshopens innehåll</h2>
+    <p>Några av de vanligaste kommandon. </p>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Kommando</th>
+        <th scope="col">Funktion</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>ls</td>
+        <td>list directory = lista alla foldrar och filer</td>
+      </tr>
+      <tr>
+        <td>cd</td>
+        <td>change directory = flytta till en annan folder</td>
+      </tr>
+      <tr>
+        <td>pwd</td>
+        <td>print current directory = dvs ange var i folderhierarkin jag befinner mig</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <!-- START - Carolina adding excercises here - Add these in the original index on Wednesday -->
+    <div class="container-md">
+      <h3>Övning 4 - Sätt upp ett bash script</h3>
+      <p>En del av de övningar vi har gjort i den här workshopen går att automatisera för att bli mer effektiv.
+        <br>Med hjälp av bash script så lär vi oss att automatisera en serie kommandon i en fil och exekvera (köra) dem.</p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Uppgifter</th>
+            <th scope="col">Instruktion i Terminalen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Skapa en fil som heter createfile.sh</td>
+            <td>Antingen med Nano <code>touch createfile.sh</code> eller med Vim <code>vim createfile.sh</code></td>
+          </tr>
+          <tr>
+            <td>Skriv in de kommandon vi vill köra för att skapa en ny fil här</td>
+            <td>Om du använde Vim så är du redan i filen. Tryck då I för Insert mode för att kunna skriva.
+              <br>Använde du Nano får du köra <code>nano &lt;createfile.sh&gt;</code> för att öppna filen först.
+              <br>Nu skriv antingen <code>touch newfile.html</code> eller <code>vim newfile.html</code>
+          </tr>
+          <tr>
+            <td>Spara & stäng filen</td>
+            <td>För Vim använd <code>ESC + wq;</code>.
+            <br>För Nano använd <code>CTRL + X + Y + Enter</code></td>
+          </tr>
+          <tr>
+            <td>Nu ska vi köra scriptet och skapa en ny fil</td>
+            <td>Kör antingen <code>./createfile.sh</code> eller <code>bash createfile.sh</code></td>
+          </tr>
+          <tr>
+            <td>Skriv något i din nya fil</td>
+            <td>Om det funkade att köra scriptet så bör du vara i en ny fil nu. Skriv ex <code>Funkar det här?</code> & spara filen</td>
+          </tr>
+          <tr>
+            <td>För att kolla om du har en ny fil i din mapp</td>
+            <td><code>ls</code> eller <code>ls -la</code> för att se filerna i din mapp, du ska se en fil som heter newfile.html</td>
+          </tr>
+          <tr>
+            <td>För att se innehållet i din nya fil</td>
+            <td>Skriv ut outputen med <code>cat newfile.html</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="container-md">
+    <h3>Övning 6 - SSH och använda en live server med Terminalen</h3>
+    <p>Här ska vi lära oss att SSHa in till en live server. Navigera där samt skapa en ny mapp och en fil, 
+      <br>samt redigera den och spara den. Vi ska också besöka serverns URL för att se att det funkar.</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Uppgifter</th>
+          <th scope="col">Instruktion i Terminalen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Skaffa inloggningsuppgifter till live server</td>
+          <td>Skicka ett SMS med ditt <mark>förnamn</mark> till nummer +46766865445</td>
+        </tr>
+        <tr>
+          <td>SSH med hjälp av inloggningsuppgifterna i Terminalen</td>
+          <td>Kör <code>ssh username@64.225.108.133</code> men byt ut <mark>username</mark> till ditt eget + ange lösenordet</td>
+        </tr>
+        <tr>
+          <td>Titta om det finns något i ditt directory på servern</td>
+          <td><code>ls</code> eller <code>ls -la</code></td>
+        </tr>
+        <tr>
+          <td>Skapa en mapp här, valfritt namn</td>
+          <td><code>mkdir &lt;namn&gt;</code></td>
+        </tr>
+        <tr>
+          <td>Gå in i mappen</td>
+          <td><code>cd &lt;namn&gt;</code></td>
+        </tr>
+        <tr>
+          <td>Skapa en fil som heter index.php</td>
+          <td>Antingen med Nano <code>touch index.php</code> eller med Vim <code>vim index.php</code></td>
+        </tr>
+        <tr>
+          <td>Gå in i filen & skriv något</td>
+          <td>Om du använde Vim så är du redan i filen. Tryck då I för Insert mode.
+            <br>Använde du Nano får du köra <code>nano &lt;filnamn&gt; </code> för att öppna filen först.
+            <br>Skriv ex <pre><code>&lt;?php <br>echo "Hello world!"; <br>?></code></pre></td>
+        </tr>
+        <tr>
+          <td>Spara & stäng filen</td>
+          <td>För Vim använd <code>ESC + wq;</code>.
+          <br>För Nano använd <code>CTRL + X + Y + Enter</code></td>
+        </tr>
+        <tr>
+          <td>Kolla att du lyckats skriva kod och spara</td>
+          <td><code>cat &lt;filnamn&gt;</code></td>
+        </tr>
+        <tr>
+          <td>Starta PHP på servern för att kunna köra PHP kod</td>
+          <td>Kör <code>php -S 64.225.108.133:5000</code> men byt ut <mark>5000</mark> till din egen port</td>
+        </tr>
+        <tr>
+          <td>Gå till URL:en för servern i din browser för att se om det funkar</td>
+          <td><code>http://64.225.108.133:5000</code> Men byt ut <mark>5000</mark> till din egen port</td>
+        </tr>
+        <tr>
+          <td>Om det funkar</td>
+          <td>Ska du se <mark>Hello world</mark> i din webbläsare nu&nbsp;🥳</li></td>
+        </tr>
+        <tr>
+          <td>Övning</td>
+          <td>Instruktion</td>
+        </tr>
+        <tr>
+          <td>Övning</td>
+          <td>Instruktion</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+   <!-- END - Carolina adding excercises here - Add these in the original index on Wednesday -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

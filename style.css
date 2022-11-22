@@ -1,3 +1,4 @@
+
 .nav-link {
     color: #565656;
 }
@@ -6,3 +7,16 @@
     color: #565656;
     font-weight: 600;
 }
+
+#quote {
+  padding: 5em;
+}
+
+.blockquote {
+  color: #d63384;
+}
+
+code {
+  background-color: #FFF8F0;
+}
+
