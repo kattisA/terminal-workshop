@@ -45,7 +45,84 @@
       </tbody>
     </table>
   </div>
-    
+
+    <!-- START - Carolina adding excercises here - Add these in the original index on Wednesday -->
+  <div class="container-md">
+    <h3>Övning 6 - SSH och använda en live server med Terminalen</h3>
+    <p>Här ska vi lära oss att SSHa in till en live server. Navigera där samt skapa en ny mapp och en fil, 
+      <br>samt redigera den och spara den. Vi ska också besöka serverns URL för att se att det funkar.</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Uppgifter</th>
+          <th scope="col">Instruktion i Terminalen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Skaffa inloggningsuppgifter till live server</td>
+          <td>Skicka ett SMS med ditt <mark>förnamn</mark> till nummer +46766865445</td>
+        </tr>
+        <tr>
+          <td>SSH med hjälp av inloggningsuppgifterna i Terminalen</td>
+          <td>Kör <code>ssh username@64.225.108.133</code> men byt ut <mark>username</mark> till ditt eget + ange lösenordet</td>
+        </tr>
+        <tr>
+          <td>Titta om det finns något i ditt directory på servern</td>
+          <td><code>ls</code> eller <code>ls -la</code></td>
+        </tr>
+        <tr>
+          <td>Skapa en mapp här, valfritt namn</td>
+          <td><code>mkdir &lt;namn&gt;</code></td>
+        </tr>
+        <tr>
+          <td>Gå in i mappen</td>
+          <td><code>cd &lt;namn&gt;</code></td>
+        </tr>
+        <tr>
+          <td>Skapa en fil som heter index.php</td>
+          <td>Antingen med Nano <code>touch index.php</code> eller med Vim <code>vim index.php</code></td>
+        </tr>
+        <tr>
+          <td>Gå in i filen & skriv något</td>
+          <td>Om du använde Vim så är du redan i filen. Tryck då I för Insert mode.
+            <br>Använde du Nano får du köra <code>nano &lt;filnamn&gt; </code> för att öppna filen först.
+            <br>Skriv ex <pre><code>&lt;?php <br>echo "Hello world!"; <br>?></code></pre></td>
+        </tr>
+        <tr>
+          <td>Spara & stäng filen</td>
+          <td>För Vim använd <code>ESC + wq;</code>.
+          <br>För Nano använd <code>CTRL + X + Y + Enter</code></td>
+        </tr>
+        <tr>
+          <td>Kolla att du lyckats skriva kod och spara</td>
+          <td><code>cat &lt;filnamn&gt;</code></td>
+        </tr>
+        <tr>
+          <td>Starta PHP på servern för att kunna köra PHP kod</td>
+          <td>Kör <code>php -S 64.225.108.133:5000</code> men byt ut <mark>5000</mark> till din egen port</td>
+        </tr>
+        <tr>
+          <td>Gå till URL:en för servern i din browser för att se om det funkar</td>
+          <td><code>http://64.225.108.133:5000</code> Men byt ut <mark>5000</mark> till din egen port</td>
+        </tr>
+        <tr>
+          <td>Om det funkar</td>
+          <td>Ska du se <mark>Hello world</mark> i din webbläsare nu&nbsp;🥳</li></td>
+        </tr>
+        <tr>
+          <td>Övning</td>
+          <td>Instruktion</td>
+        </tr>
+        <tr>
+          <td>Övning</td>
+          <td>Instruktion</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+   <!-- END - Carolina adding excercises here - Add these in the original index on Wednesday -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
   </body>
