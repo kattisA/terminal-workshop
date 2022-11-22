@@ -25,8 +25,12 @@
     width:50%;
 }
 
+.alert-info {
+    width:80%;
+}
+
 #tableOverview {
-    width:80%
+    width:80%;
 }
 
 #quote {
