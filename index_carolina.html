@@ -18,34 +18,6 @@
       </figcaption>
     </figure>
   </div>
-  <div class="container-md">
-  <h1>Terminal Workshop för Uppsala Women Coding</h1>
-    <h2>Översikt av workshopens innehåll</h2>
-    <p>Några av de vanligaste kommandon. </p>
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th scope="col">Kommando</th>
-        <th scope="col">Funktion</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>ls</td>
-        <td>list directory = lista alla foldrar och filer</td>
-      </tr>
-      <tr>
-        <td>cd</td>
-        <td>change directory = flytta till en annan folder</td>
-      </tr>
-      <tr>
-        <td>pwd</td>
-        <td>print current directory = dvs ange var i folderhierarkin jag befinner mig</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-
     <!-- START - Carolina adding excercises here - Add these in the original index on Wednesday -->
     <div class="container-md">
       <h3>Övning 4 - Sätt upp ett bash script</h3>
@@ -89,6 +61,54 @@
           <tr>
             <td>För att se innehållet i din nya fil</td>
             <td>Skriv ut outputen med <code>cat newfile.html</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="container-md">
+      <h3>Övning 5 - Vi gör ett mer avancerat bash script</h3>
+      <p>Nu tar vi hjälp av bash script och exekverar en hel serie av kommandon.</p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Uppgifter</th>
+            <th scope="col">Instruktion i Terminalen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Skapa en fil som heter series.sh</td>
+            <td>Antingen med Nano <code>touch series.sh</code> eller med Vim <code>vim series.sh</code></td>
+          </tr>
+          <tr>
+            <td>Skriv in de kommandon vi vill köra för att skapa en ny fil här</td>
+            <td>Om du använde Vim så är du redan i filen. Tryck då I för Insert mode för att kunna skriva.
+              <br>Använde du Nano får du köra <code>nano &lt;createfile.sh&gt;</code> för att öppna filen först.
+              <br><br>Nu skriver vi ett par olika kommandon<pre><code>mkdir &lt;new-folder&gt;
+cd &lt;new-folder&gt;</code>
+Och skriv antingen <code>touch newfile.html</code> eller <code>vim newfile.html</code></pre>
+          </tr>
+          <tr>
+            <td>Spara & stäng filen</td>
+            <td>För Vim använd <code>ESC + wq;</code>.
+            <br>För Nano använd <code>CTRL + X + Y + Enter</code></td>
+          </tr>
+          <tr>
+            <td>Nu ska vi köra scriptet och skapa en ny fil</td>
+            <td>Kör antingen <code>./series.sh</code> eller <code>bash series.sh</code></td>
+          </tr>
+          <tr>
+            <td>Skriv något i din nya fil</td>
+            <td>Om det funkade att köra scriptet så bör du vara i en ny fil nu. Skriv ex <code>Testing testing</code> & spara filen</td>
+          </tr>
+          <tr>
+            <td>För att se innehållet i din nya fil</td>
+            <td>Skriv ut outputen med <code>cat newfile.html</code></td>
+          </tr>
+          <tr>
+            <td>För att kolla om du har en ny fil i din mapp</td>
+            <td>Först måste vi köra <code>cd ..</code> för att backa tillbaka en mapp uppåt
+            <br><code>ls</code> eller <code>ls -la</code> för att se filerna i din mapp, du ska se en ny mapp som heter &lt;new-folder&gt;</td>
           </tr>
         </tbody>
       </table>
