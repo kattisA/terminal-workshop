@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Terminal workshop</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- Bootstrap Font Icon CSS -->
     <link rel="stylesheet" href=
@@ -11,7 +11,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-  <div class="container-md">
+  <div class="container-md" id="quote">
+    <figure class="text-center">
+      <blockquote class="blockquote">
+        <p>"Every girl deserves to take part in creating the technology that will change our world, and change who runs it."</p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        Malala Yousafzai, <cite title="Source Title">Nobel Peace Prize Winner</cite>
+      </figcaption>
+    </figure>
+  </div>
     <ul class="nav col-2 flex-column fixed-top">
       <li class="nav-item">
         <a class="nav-link active" href="#start">Start</a>
@@ -25,184 +34,372 @@
       <li class="nav-item">
         <a class="nav-link" href="#exercise3">Övning 3 - Kopiera filer</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#exercise4">Övning 4 - Bash script</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#exercise5">Övning 5 - Avancerad bash</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#exercise6">Övning 6 - SSH</a>
+      </li>
     </ul>
     <div class="mainText">
-      <h1 id="start">Terminal Workshop för <span style="color: salmon">Uppsala Women Coding</span></h1>
-      <h2>Översikt av workshopens innehåll</h2>
-      <p>Du kan använda terminalen i stället för datorns gui och skapa nya foldrar, filer men också söka i filerna,
-        kopiera och flytta dem. För att lära sig om terminalen följer några övningar inom de olika delarna
-        så att du kan prova på egen hand. </p>
-      <p>Några av de vanligaste kommandon finns med i tabellen nedan. </p>
-      <table id="tableOverview" class="table table-striped">
-        <thead>
-        <tr>
-          <th scope="col">Kommando</th>
-          <th scope="col">Funktion</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>ls</td>
-          <td>list directory = lista alla foldrar och filer</td>
-        </tr>
-        <tr>
-          <td>cd</td>
-          <td>change directory = flytta till en annan folder</td>
-        </tr>
-        <tr>
-          <td>pwd</td>
-          <td>print current directory = dvs ange var i folderhierarkin jag befinner mig</td>
-        </tr>
-        <tr>
-          <td>mkdir</td>
-          <td>make directory = skapa en mapp</td>
-        </tr>
-        <tr>
-          <td>cp</td>
-          <td>copy = kan användas för att kopiera</td>
-        </tr>
-        <tr>
-          <td>mv</td>
-          <td>move = flytta eller byt namn på en fil</td>
-        </tr>
-        </tbody>
-      </table>
-      <h2 id="exercise1">Övning 1 - Navigering</h2>
-      <p>För att navigera används kommandot <span class="badge bg-info text-dark">cd</span> främst.
-        Du kan också få hjälp av <span class="badge bg-info text-dark">ls</span> för att se vilka olika foldrar
-        och filer som finns. För att lista dessa och även se dolda filer använd
-        <span class="badge bg-info text-dark">ls -l</span>. För att navigera vidare ange "cd" tillsammans
-        med din folder som du ska navigera till. För att ta dig tillbaka igen kan du använda "cd"
-        tillsammans med andra tecken för att ta dig upp i hierarkin i olika steg.
-        Du kan också ta dig direkt till hemkatalogen eller till root.
-      </p>
-      <div class="alert alert-info" role="alert">
-        <i class="bi bi-lightbulb" style="font-size: 1.5rem; color: #0dcaf0;"></i>Använd tab för autocomplete när du
-        skriver din folders namn!
+      <div class="container-md">
+        <h1 id="start">Terminal Workshop för <span style="color: #d63384">Uppsala Women Coding</span></h1>
+        <h2>Översikt av workshopens innehåll</h2>
+        <p>Du kan använda terminalen i stället för datorns gui och skapa nya foldrar, filer men också söka i filerna,
+          kopiera och flytta dem. För att lära sig om terminalen följer några övningar inom de olika delarna
+          så att du kan prova på egen hand. </p>
+        <p>Några av de vanligaste kommandon finns med i tabellen nedan. </p>
+        <table id="tableOverview" class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Kommando</th>
+            <th scope="col">Funktion</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>ls</td>
+            <td>list directory = lista alla foldrar och filer</td>
+          </tr>
+          <tr>
+            <td>cd</td>
+            <td>change directory = flytta till en annan folder</td>
+          </tr>
+          <tr>
+            <td>pwd</td>
+            <td>print current directory = dvs ange var i folderhierarkin jag befinner mig</td>
+          </tr>
+          <tr>
+            <td>mkdir</td>
+            <td>make directory = skapa en mapp</td>
+          </tr>
+          <tr>
+            <td>cp</td>
+            <td>copy = kan användas för att kopiera</td>
+          </tr>
+          <tr>
+            <td>mv</td>
+            <td>move = flytta eller byt namn på en fil</td>
+          </tr>
+          </tbody>
+        </table>
       </div>
-      <h3>Navigera till en mapp och tillbaka till Home</h3>
-      <ol type="1">
-        <li>Navigera till en mapp med hjälp av terminalen</li>
-        <li>Lista dina foldrar och filer i den katalogen</li>
-        <li>Navigera till en till mapp</li>
-        <li>Navigera nu tillbaka till din hemkatalog!</li>
-        <li>Vad skulle du kunna skriva för att komma till rooten dvs ovanför din hemkatalog?</li>
-      </ol>
-      <p>
-        <a class="btn btn-info" data-bs-toggle="collapse" href="#collapseEx1" role="button" aria-expanded="false"
-           aria-controls="collapseExample">
-          Lösning
-        </a>
-      </p>
-      <div class="collapse" id="collapseEx1">
-        <div class="card card-body my-3">
-          <div class="alert alert-secondary" role="alert">
-            $ cd Documents<br>
-            $ ls <br>
-            $ cd Zoom <br>
-            $ cd ~ <br>
-            $ cd / <br>
+      <div class="container-md">
+        <h2 id="exercise1">Övning 1 - Navigering</h2>
+        <p>För att navigera används kommandot <span class="badge bg-info text-dark">cd</span> främst.
+          Du kan också få hjälp av <span class="badge bg-info text-dark">ls</span> för att se vilka olika foldrar
+          och filer som finns. För att lista dessa och även se dolda filer använd
+          <span class="badge bg-info text-dark">ls -l</span>. För att navigera vidare ange "cd" tillsammans
+          med din folder som du ska navigera till. För att ta dig tillbaka igen kan du använda "cd"
+          tillsammans med andra tecken för att ta dig upp i hierarkin i olika steg.
+          Du kan också ta dig direkt till hemkatalogen eller till root.
+        </p>
+        <div class="alert alert-info" role="alert">
+          <i class="bi bi-lightbulb" style="font-size: 1.5rem; color: #0dcaf0;"></i>Använd tab för autocomplete när du
+          skriver din folders namn!
+        </div>
+        <h3>Navigera till en mapp och tillbaka till Home</h3>
+        <ol type="1">
+          <li>Navigera till en mapp med hjälp av terminalen</li>
+          <li>Lista dina foldrar och filer i den katalogen</li>
+          <li>Navigera till en till mapp</li>
+          <li>Navigera nu tillbaka till din hemkatalog!</li>
+          <li>Vad skulle du kunna skriva för att komma till rooten dvs ovanför din hemkatalog?</li>
+        </ol>
+        <p>
+          <a class="btn btn-info" data-bs-toggle="collapse" href="#collapseEx1" role="button" aria-expanded="false"
+             aria-controls="collapseExample">
+            Lösning
+          </a>
+        </p>
+        <div class="collapse" id="collapseEx1">
+          <div class="card card-body my-3">
+            <div class="alert alert-secondary" role="alert">
+              $ cd Documents<br>
+              $ ls <br>
+              $ cd Zoom <br>
+              $ cd ~ <br>
+              $ cd / <br>
+            </div>
+            <p>
+              När du använder <span class="badge bg-info text-dark">cd ~ </span> hamnar du i hemkatalogen
+              medan <span class="badge bg-info text-dark">cd /</span> tar dig till root, dvs den högsta nivå i
+              mapphierarkin.
+            </p>
           </div>
-          <p>
-            När du använder <span class="badge bg-info text-dark">cd ~ </span> hamnar du i hemkatalogen
-            medan <span class="badge bg-info text-dark">cd /</span> tar dig till root, dvs den högsta nivå i
-            mapphierarkin.
-          </p>
         </div>
       </div>
-      <h2 id="exercise2">Övning 2 - Hantera filer</h2>
-      <p>Precis som med datorns gui kan du med hjälp av terminalen hantera filer och mappar.
-        Med directory menas en mapp och exempelvis <span class="badge bg-info text-dark">mkdir</span> står för make
-        directory,
-        dvs skapa en mapp.</p>
-      <p>För att redigera filer direkt i terminalen krävs det ett program. Nano finns förinstallerat för Linux OS
-        och det är tillgängligt för PowerShell tex via chocolatey.
-      <div class="alert alert-secondary" role="alert">
-        choco install nano
-      </div>
-      </p>
-      För att öppna en fil med ett program ange programmet först och sen filnamnet tex:
-      <div class="alert alert-secondary" role="alert">
-        nano minfil.txt
-      </div>
-      Ett annat alternativ för att öppna en fil i windows är att skriva
-      <div class="alert alert-secondary" role="alert">
-        notepad *filnamn*
-      </div>
-      <div class="alert alert-info" role="alert">
-        <i class="bi bi-lightbulb" style="font-size: 1.5rem; color: #0dcaf0;"></i>Du kan använda pil upp för att
-        komma till dina tidigare kommandon!
-      </div>
-      <h3>Skapa och editera en fil</h3>
-      <ol type="1">
-        <li>Ställ dig i Home och skapa en mapp, du kan tex kalla den Workshop</li>
-        <li>Navigera till den mappen</li>
-        <li>Skapa en fil tex intro.txt</li>
-        <li>Öppna filen med valfritt program och editera</li>
-        <li>Spara och stäng</li>
-      </ol>
-      <p>
-        <a class="btn btn-info" data-bs-toggle="collapse" href="#collapseEx2" role="button" aria-expanded="false"
-           aria-controls="collapseExample">
-          Lösning
-        </a>
-      </p>
-      <div class="collapse" id="collapseEx2">
-        <div class="card card-body my-3">
-          <div class="alert alert-secondary" role="alert">
-            $ mkdir Workshop<br>
-            $ cd Workshop <br>
-            $ touch intro.txt <br>
-            $ nano intro.txt <br>
-            Editera filen, spara och stäng <br>
+      <div class="container-md">
+        <h2 id="exercise2">Övning 2 - Hantera filer</h2>
+        <p>Precis som med datorns gui kan du med hjälp av terminalen hantera filer och mappar.
+          Med directory menas en mapp och exempelvis <span class="badge bg-info text-dark">mkdir</span> står för make
+          directory,
+          dvs skapa en mapp.</p>
+        <p>För att redigera filer direkt i terminalen krävs det ett program. Nano finns förinstallerat för Linux OS
+          och det är tillgängligt för PowerShell tex via chocolatey. </p>
+        <div class="alert alert-secondary" role="alert">
+          choco install nano
+        </div>
+        För att öppna en fil med ett program ange programmet först och sen filnamnet tex:
+        <div class="alert alert-secondary" role="alert">
+          nano minfil.txt
+        </div>
+        Ett annat alternativ för att öppna en fil i windows är att skriva
+        <div class="alert alert-secondary" role="alert">
+          notepad *filnamn*
+        </div>
+        <div class="alert alert-info" role="alert">
+          <i class="bi bi-lightbulb" style="font-size: 1.5rem; color: #0dcaf0;"></i>Du kan använda pil upp för att
+          komma till dina tidigare kommandon!
+        </div>
+        <h3>Skapa och editera en fil</h3>
+        <ol type="1">
+          <li>Ställ dig i Home och skapa en mapp, du kan tex kalla den Workshop</li>
+          <li>Navigera till den mappen</li>
+          <li>Skapa en fil tex intro.txt</li>
+          <li>Öppna filen med valfritt program och editera</li>
+          <li>Spara och stäng</li>
+        </ol>
+        <p>
+          <a class="btn btn-info" data-bs-toggle="collapse" href="#collapseEx2" role="button" aria-expanded="false"
+             aria-controls="collapseExample">
+            Lösning
+          </a>
+        </p>
+        <div class="collapse" id="collapseEx2">
+          <div class="card card-body my-3">
+            <div class="alert alert-secondary" role="alert">
+              $ mkdir Workshop<br>
+              $ cd Workshop <br>
+              $ touch intro.txt <br>
+              $ nano intro.txt <br>
+              Editera filen, spara och stäng <br>
+            </div>
+            <p>
+              I nano kan du spara filen med <span class="badge bg-info text-dark">Ctrl + O </span> tryck enter för att
+              välja det aktuella filnamnet och stäng med <span class="badge bg-info text-dark">Ctrl + X</span>.
+            </p>
           </div>
-          <p>
-            I nano kan du spara filen med <span class="badge bg-info text-dark">Ctrl + O </span> tryck enter för att
-            välja det aktuella filnamnet och stäng med <span class="badge bg-info text-dark">Ctrl + X</span>.
-          </p>
         </div>
       </div>
-      <h2 id="exercise3">Övning 3 - Kopiera filer</h2>
-      <p>För att kopiera en fil kan du använda kommandot <span class="badge bg-info text-dark">cp</span>
-        som står för copy. För att flytta en fil använd <span class="badge bg-info text-dark">mv</span></p>
-      <div class="alert alert-info" role="alert">
-        <i class="bi bi-lightbulb" style="font-size: 1.5rem; color: #0dcaf0;"></i>Om du vil veta i vilken katalog
-        du står i nu använd kommandot <span class="badge bg-info text-dark">pwd</span>. Det kommandot kan vara
-        användbart för navigering eller om du vill veta vilken sökväg en fil har.
-      </div>
-      <h3>Kopiera och flytta en fil</h3>
-      <ol type="1">
-        <li>Ställ dig i den katalogen som du skapade innan som hette Workshop</li>
-        <li>Kopiera filen intro.txt som copy_intro.txt</li>
-        <li>Byt namn på nya filen till exempel.txt</li>
-        <li>Flytta filen från Workshop mappen till mappen ovanför i hierarkin</li>
-      </ol>
-      <p>
-        <a class="btn btn-info" data-bs-toggle="collapse" href="#collapseEx3" role="button" aria-expanded="false"
-           aria-controls="collapseExample">
-          Lösning
-        </a>
-      </p>
-      <div class="collapse" id="collapseEx3">
-        <div class="card card-body my-3">
-          <div class="alert alert-secondary" role="alert">
-            $ cd Workshop<br>
-            $ cp intro.txt copy_intro.txt <br>
-            $ mv copy_intro.txt exempel.txt <br>
-            $ mv /home/kattis/Workshop/exempel.txt /home/kattis<br>
+      <div class="container-md">
+        <h2 id="exercise3">Övning 3 - Kopiera filer</h2>
+        <p>För att kopiera en fil kan du använda kommandot <span class="badge bg-info text-dark">cp</span>
+          som står för copy. För att flytta en fil använd <span class="badge bg-info text-dark">mv</span></p>
+        <div class="alert alert-info" role="alert">
+          <i class="bi bi-lightbulb" style="font-size: 1.5rem; color: #0dcaf0;"></i>Om du vil veta i vilken katalog
+          du står i nu använd kommandot <span class="badge bg-info text-dark">pwd</span>. Det kommandot kan vara
+          användbart för navigering eller om du vill veta vilken sökväg en fil har.
+        </div>
+        <h3>Kopiera och flytta en fil</h3>
+        <ol type="1">
+          <li>Ställ dig i den katalogen som du skapade innan som hette Workshop</li>
+          <li>Kopiera filen intro.txt som copy_intro.txt</li>
+          <li>Byt namn på nya filen till exempel.txt</li>
+          <li>Flytta filen från Workshop mappen till mappen ovanför i hierarkin</li>
+        </ol>
+        <p>
+          <a class="btn btn-info" data-bs-toggle="collapse" href="#collapseEx3" role="button" aria-expanded="false"
+             aria-controls="collapseExample">
+            Lösning
+          </a>
+        </p>
+        <div class="collapse" id="collapseEx3">
+          <div class="card card-body my-3">
+            <div class="alert alert-secondary" role="alert">
+              $ cd Workshop<br>
+              $ cp intro.txt copy_intro.txt <br>
+              $ mv copy_intro.txt exempel.txt <br>
+              $ mv /home/kattis/Workshop/exempel.txt /home/kattis<br>
+            </div>
+            <p>
+              Ta fram din sökväg med <span class="badge bg-info text-dark">pwd</span> och lägg till filnamnet efter en / ,
+              eftersom du inte kan navigera in i en fil.
+            </p>
           </div>
-          <p>
-            Ta fram din sökväg med <span class="badge bg-info text-dark">pwd</span> och lägg till filnamnet efter en / ,
-            eftersom du inte kan navigera in i en fil.
-          </p>
         </div>
       </div>
+      <!-- START - Carolina adding excercises here - Add these in the original index on Wednesday -->
+      <div class="container-md">
+        <h3 id="exercise4">Övning 4 - Sätt upp ett bash script</h3>
+        <p>En del av de övningar vi har gjort i den här workshopen går att automatisera för att bli mer effektiv.
+          <br>Med hjälp av bash script så lär vi oss att automatisera en serie kommandon i en fil och exekvera (köra) dem.</p>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Uppgifter</th>
+            <th scope="col">Instruktion i Terminalen</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Skapa en fil som heter createfile.sh</td>
+            <td>Antingen med Nano <code>touch createfile.sh</code> eller med Vim <code>vim createfile.sh</code></td>
+          </tr>
+          <tr>
+            <td>Skriv in de kommandon vi vill köra för att skapa en ny fil här</td>
+            <td>Om du använde Vim så är du redan i filen. Tryck då I för Insert mode för att kunna skriva.
+              <br>Använde du Nano får du köra <code>nano &lt;createfile.sh&gt;</code> för att öppna filen först.
+              <br>Nu skriv antingen <code>touch newfile.html</code> eller <code>vim newfile.html</code>
+          </tr>
+          <tr>
+            <td>Spara & stäng filen</td>
+            <td>För Vim använd <code>ESC + wq;</code>.
+              <br>För Nano använd <code>CTRL + X + Y + Enter</code></td>
+          </tr>
+          <tr>
+            <td>Nu ska vi köra scriptet och skapa en ny fil</td>
+            <td>Kör antingen <code>./createfile.sh</code> eller <code>bash createfile.sh</code></td>
+          </tr>
+          <tr>
+            <td>Skriv något i din nya fil</td>
+            <td>Om det funkade att köra scriptet så bör du vara i en ny fil nu. Skriv ex <code>Funkar det här?</code> & spara filen</td>
+          </tr>
+          <tr>
+            <td>För att kolla om du har en ny fil i din mapp</td>
+            <td><code>ls</code> eller <code>ls -la</code> för att se filerna i din mapp, du ska se en fil som heter newfile.html</td>
+          </tr>
+          <tr>
+            <td>För att se innehållet i din nya fil</td>
+            <td>Skriv ut outputen med <code>cat newfile.html</code></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="container-md">
+        <h3 id="exercise5">Övning 5 - Vi gör ett mer avancerat bash script</h3>
+        <p>Nu tar vi hjälp av bash script och exekverar en hel serie av kommandon.</p>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Uppgifter</th>
+            <th scope="col">Instruktion i Terminalen</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Skapa en fil som heter series.sh</td>
+            <td>Antingen med Nano <code>touch series.sh</code> eller med Vim <code>vim series.sh</code></td>
+          </tr>
+          <tr>
+            <td>Skriv in de kommandon vi vill köra för att skapa en ny fil här</td>
+            <td>Om du använde Vim så är du redan i filen. Tryck då I för Insert mode för att kunna skriva.
+              <br>Använde du Nano får du köra <code>nano &lt;createfile.sh&gt;</code> för att öppna filen först.
+              <br><br>Nu skriver vi ett par olika kommandon<pre><code>mkdir &lt;new-folder&gt;
+cd &lt;new-folder&gt;</code>
+Och skriv antingen <code>touch newfile.html</code> eller <code>vim newfile.html</code></pre>
+          </tr>
+          <tr>
+            <td>Spara & stäng filen</td>
+            <td>För Vim använd <code>ESC + wq;</code>.
+              <br>För Nano använd <code>CTRL + X + Y + Enter</code></td>
+          </tr>
+          <tr>
+            <td>Nu ska vi köra scriptet och skapa en ny fil</td>
+            <td>Kör antingen <code>./series.sh</code> eller <code>bash series.sh</code></td>
+          </tr>
+          <tr>
+            <td>Skriv något i din nya fil</td>
+            <td>Om det funkade att köra scriptet så bör du vara i en ny fil nu. Skriv ex <code>Testing testing</code> & spara filen</td>
+          </tr>
+          <tr>
+            <td>För att se innehållet i din nya fil</td>
+            <td>Skriv ut outputen med <code>cat newfile.html</code></td>
+          </tr>
+          <tr>
+            <td>För att kolla om du har en ny fil i din mapp</td>
+            <td>Först måste vi köra <code>cd ..</code> för att backa tillbaka en mapp uppåt
+              <br><code>ls</code> eller <code>ls -la</code> för att se filerna i din mapp, du ska se en ny mapp som heter &lt;new-folder&gt;</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="container-md">
+        <h3 id="exercise6">Övning 6 - SSH och använda en live server med Terminalen</h3>
+        <p>Här ska vi lära oss att SSHa in till en live server. Navigera där samt skapa en ny mapp och en fil,
+          <br>samt redigera den och spara den. Vi ska också besöka serverns URL för att se att det funkar.</p>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Uppgifter</th>
+            <th scope="col">Instruktion i Terminalen</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Skaffa inloggningsuppgifter till live server</td>
+            <td>Skicka ett SMS med ditt <mark>förnamn</mark> till nummer +46766865445</td>
+          </tr>
+          <tr>
+            <td>SSH med hjälp av inloggningsuppgifterna i Terminalen</td>
+            <td>Kör <code>ssh username@64.225.108.133</code> men byt ut <mark>username</mark> till ditt eget + ange lösenordet</td>
+          </tr>
+          <tr>
+            <td>Titta om det finns något i ditt directory på servern</td>
+            <td><code>ls</code> eller <code>ls -la</code></td>
+          </tr>
+          <tr>
+            <td>Skapa en mapp här, valfritt namn</td>
+            <td><code>mkdir &lt;namn&gt;</code></td>
+          </tr>
+          <tr>
+            <td>Gå in i mappen</td>
+            <td><code>cd &lt;namn&gt;</code></td>
+          </tr>
+          <tr>
+            <td>Skapa en fil som heter index.php</td>
+            <td>Antingen med Nano <code>touch index.php</code> eller med Vim <code>vim index.php</code></td>
+          </tr>
+          <tr>
+            <td>Gå in i filen & skriv något</td>
+            <td>Om du använde Vim så är du redan i filen. Tryck då I för Insert mode.
+              <br>Använde du Nano får du köra <code>nano &lt;filnamn&gt; </code> för att öppna filen först.
+              <br>Skriv ex <pre><code>&lt;?php <br>echo "Hello world!"; <br>?></code></pre></td>
+          </tr>
+          <tr>
+            <td>Spara & stäng filen</td>
+            <td>För Vim använd <code>ESC + wq;</code>.
+              <br>För Nano använd <code>CTRL + X + Y + Enter</code></td>
+          </tr>
+          <tr>
+            <td>Kolla att du lyckats skriva kod och spara</td>
+            <td><code>cat &lt;filnamn&gt;</code></td>
+          </tr>
+          <tr>
+            <td>Starta PHP på servern för att kunna köra PHP kod</td>
+            <td>Kör <code>php -S 64.225.108.133:5000</code> men byt ut <mark>5000</mark> till din egen port</td>
+          </tr>
+          <tr>
+            <td>Gå till URL:en för servern i din browser för att se om det funkar</td>
+            <td><code>http://64.225.108.133:5000</code> Men byt ut <mark>5000</mark> till din egen port</td>
+          </tr>
+          <tr>
+            <td>Om det funkar</td>
+            <td>Ska du se <mark>Hello world</mark> i din webbläsare nu&nbsp;🥳</li></td>
+          </tr>
+          <tr>
+            <td>Övning</td>
+            <td>Instruktion</td>
+          </tr>
+          <tr>
+            <td>Övning</td>
+            <td>Instruktion</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- END - Carolina adding excercises here - Add these in the original index on Wednesday -->
     </div>
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
             crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
-  </div>
+
   </body>
 </html>
