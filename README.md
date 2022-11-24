@@ -9,7 +9,7 @@ En index.html fil som kan visas i browsern. Används i workshopen för att kunna
 Kattis och Carolina bidrar med övningar för terminalen.
 
 ## Deployed
-Sidan hittas på .....
+Sidan hittas på https://kattisa.github.io/terminal-workshop/
 
 ## Inspiration
 
